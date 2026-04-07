@@ -1,34 +1,36 @@
-<div align="center">
 
-<img src="./static/image/MiroFish_logo_compressed.jpeg" alt="MiroFish Logo" width="75%"/>
 
-<a href="https://trendshift.io/repositories/16144" target="_blank"><img src="https://trendshift.io/api/badge/repositories/16144" alt="666ghj%2FMiroFish | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+
+
+
 
 简洁通用的群体智能引擎，预测万物
-</br>
-<em>A Simple and Universal Swarm Intelligence Engine, Predicting Anything</em>
+  
 
-<a href="https://www.shanda.com/" target="_blank"><img src="./static/image/shanda_logo.png" alt="666ghj%2MiroFish | Shanda" height="40"/></a>
+*A Simple and Universal Swarm Intelligence Engine, Predicting Anything*
 
-[![GitHub Stars](https://img.shields.io/github/stars/666ghj/MiroFish?style=flat-square&color=DAA520)](https://github.com/666ghj/MiroFish/stargazers)
-[![GitHub Watchers](https://img.shields.io/github/watchers/666ghj/MiroFish?style=flat-square)](https://github.com/666ghj/MiroFish/watchers)
-[![GitHub Forks](https://img.shields.io/github/forks/666ghj/MiroFish?style=flat-square)](https://github.com/666ghj/MiroFish/network)
-[![Docker](https://img.shields.io/badge/Docker-Build-2496ED?style=flat-square&logo=docker&logoColor=white)](https://hub.docker.com/)
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/666ghj/MiroFish)
 
-[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=flat-square&logo=discord&logoColor=white)](http://discord.gg/ePf5aPaHnA)
-[![X](https://img.shields.io/badge/X-Follow-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/mirofish_ai)
-[![Instagram](https://img.shields.io/badge/Instagram-Follow-E4405F?style=flat-square&logo=instagram&logoColor=white)](https://www.instagram.com/mirofish_ai/)
+
+[GitHub Stars](https://github.com/666ghj/MiroFish/stargazers)
+[GitHub Watchers](https://github.com/666ghj/MiroFish/watchers)
+[GitHub Forks](https://github.com/666ghj/MiroFish/network)
+[Docker](https://hub.docker.com/)
+[Ask DeepWiki](https://deepwiki.com/666ghj/MiroFish)
+
+[Discord](http://discord.gg/ePf5aPaHnA)
+[X](https://x.com/mirofish_ai)
+[Instagram](https://www.instagram.com/mirofish_ai/)
 
 [English](./README.md) | [中文文档](./README-ZH.md)
 
-</div>
+
 
 ## ⚡ Overview
 
 **MiroFish** is a next-generation AI prediction engine powered by multi-agent technology. By extracting seed information from the real world (such as breaking news, policy drafts, or financial signals), it automatically constructs a high-fidelity parallel digital world. Within this space, thousands of intelligent agents with independent personalities, long-term memory, and behavioral logic freely interact and undergo social evolution. You can inject variables dynamically from a "God's-eye view" to precisely deduce future trajectories — **rehearse the future in a digital sandbox, and win decisions after countless simulations**.
 
-> You only need to: Upload seed materials (data analysis reports or interesting novel stories) and describe your prediction requirements in natural language</br>
+> You only need to: Upload seed materials (data analysis reports or interesting novel stories) and describe your prediction requirements in natural language  
+>
 > MiroFish will return: A detailed prediction report and a deeply interactive high-fidelity digital world
 
 ### Our Vision
@@ -46,40 +48,31 @@ Welcome to visit our online demo environment and experience a prediction simulat
 
 ## 📸 Screenshots
 
-<div align="center">
-<table>
-<tr>
-<td><img src="./static/image/Screenshot/运行截图1.png" alt="Screenshot 1" width="100%"/></td>
-<td><img src="./static/image/Screenshot/运行截图2.png" alt="Screenshot 2" width="100%"/></td>
-</tr>
-<tr>
-<td><img src="./static/image/Screenshot/运行截图3.png" alt="Screenshot 3" width="100%"/></td>
-<td><img src="./static/image/Screenshot/运行截图4.png" alt="Screenshot 4" width="100%"/></td>
-</tr>
-<tr>
-<td><img src="./static/image/Screenshot/运行截图5.png" alt="Screenshot 5" width="100%"/></td>
-<td><img src="./static/image/Screenshot/运行截图6.png" alt="Screenshot 6" width="100%"/></td>
-</tr>
-</table>
-</div>
+
+|     |     |
+| --- | --- |
+|     |     |
+|     |     |
+|     |     |
+
 
 ## 🎬 Demo Videos
 
 ### 1. Wuhan University Public Opinion Simulation + MiroFish Project Introduction
 
-<div align="center">
-<a href="https://www.bilibili.com/video/BV1VYBsBHEMY/" target="_blank"><img src="./static/image/武大模拟演示封面.png" alt="MiroFish Demo Video" width="75%"/></a>
+
 
 Click the image to watch the complete demo video for prediction using BettaFish-generated "Wuhan University Public Opinion Report"
-</div>
+
+
 
 ### 2. Dream of the Red Chamber Lost Ending Simulation
 
-<div align="center">
-<a href="https://www.bilibili.com/video/BV1cPk3BBExq" target="_blank"><img src="./static/image/红楼梦模拟推演封面.jpg" alt="MiroFish Demo Video" width="75%"/></a>
+
 
 Click the image to watch MiroFish's deep prediction of the lost ending based on hundreds of thousands of words from the first 80 chapters of "Dream of the Red Chamber"
-</div>
+
+
 
 > **Financial Prediction**, **Political News Prediction** and more examples coming soon...
 
@@ -97,11 +90,13 @@ Click the image to watch MiroFish's deep prediction of the lost ending based on 
 
 #### Prerequisites
 
-| Tool | Version | Description | Check Installation |
-|------|---------|-------------|-------------------|
-| **Node.js** | 18+ | Frontend runtime, includes npm | `node -v` |
-| **Python** | ≥3.11, ≤3.12 | Backend runtime | `python --version` |
-| **uv** | Latest | Python package manager | `uv --version` |
+
+| Tool        | Version      | Description                    | Check Installation |
+| ----------- | ------------ | ------------------------------ | ------------------ |
+| **Node.js** | 18+          | Frontend runtime, includes npm | `node -v`          |
+| **Python**  | ≥3.11, ≤3.12 | Backend runtime                | `python --version` |
+| **uv**      | Latest       | Python package manager         | `uv --version`     |
+
 
 #### 1. Configure Environment Variables
 
@@ -152,6 +147,7 @@ npm run dev
 ```
 
 **Service URLs:**
+
 - Frontend: `http://localhost:3000`
 - Backend API: `http://localhost:5001`
 
@@ -178,13 +174,11 @@ Reads `.env` from root directory by default, maps ports `3000 (frontend) / 5001 
 
 ## 📬 Join the Conversation
 
-<div align="center">
-<img src="./static/image/QQ群.png" alt="QQ Group" width="60%"/>
-</div>
 
-&nbsp;
 
-The MiroFish team is recruiting full-time/internship positions. If you're interested in multi-agent simulation and LLM applications, feel free to send your resume to: **mirofish@shanda.com**
+ 
+
+The MiroFish team is recruiting full-time/internship positions. If you're interested in multi-agent simulation and LLM applications, feel free to send your resume to: **[mirofish@shanda.com](mailto:mirofish@shanda.com)**
 
 ## 📄 Acknowledgments
 
@@ -194,10 +188,3 @@ MiroFish's simulation engine is powered by **[OASIS (Open Agent Social Interacti
 
 ## 📈 Project Statistics
 
-<a href="https://www.star-history.com/#666ghj/MiroFish&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=666ghj/MiroFish&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=666ghj/MiroFish&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=666ghj/MiroFish&type=date&legend=top-left" />
- </picture>
-</a>
