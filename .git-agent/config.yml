@@ -1,0 +1,9 @@
+scopes:
+    - name: backend
+      description: API, models, services, and utilities located in backend/
+    - name: frontend
+      description: UI components, views, API clients, and router in frontend/
+    - name: locales
+      description: Translation files and language registry in locales/
+    - name: static
+      description: Images, screenshots, and visual assets in static/
