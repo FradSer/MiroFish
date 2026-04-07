@@ -130,6 +130,8 @@ except ImportError as e:
     print("请先安装: pip install oasis-ai camel-ai")
     sys.exit(1)
 
+from oasis_embedding_adapter import setup_oasis_gemini_embedding
+
 
 # IPC相关常量
 IPC_COMMANDS_DIR = "ipc_commands"
@@ -574,11 +576,13 @@ class RedditSimulationRunner:
             print(f"已删除旧数据库: {db_path}")
         
         print("创建OASIS环境...")
+        setup_oasis_gemini_embedding()
         self.env = oasis.make(
             agent_graph=self.agent_graph,
             platform=oasis.DefaultPlatformType.REDDIT,
             database_path=db_path,
             semaphore=30,  # 限制最大并发 LLM 请求数，防止 API 过载
+            use_openai_embedding=True,
         )
         
         await self.env.reset()
