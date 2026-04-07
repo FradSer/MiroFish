@@ -60,4 +60,10 @@ def setup_oasis_gemini_embedding() -> GeminiEmbedding:
         return original_recsys_with_trace(*args, **kwargs)
 
     oasis_recsys.rec_sys_personalized_with_trace = _safe_rec_sys_personalized_with_trace
+
+    # platform.py uses `from .recsys import rec_sys_personalized_with_trace`,
+    # so it holds a direct reference that the module-level patch above doesn't reach.
+    import oasis.social_platform.platform as oasis_platform
+    oasis_platform.rec_sys_personalized_with_trace = _safe_rec_sys_personalized_with_trace
+
     return embedding_client
