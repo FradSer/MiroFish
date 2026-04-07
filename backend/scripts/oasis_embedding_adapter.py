@@ -35,4 +35,29 @@ def setup_oasis_gemini_embedding() -> GeminiEmbedding:
         return vectors
 
     oasis_recsys.generate_post_vector_openai = _generate_post_vector_gemini
+
+    # Compatibility patch for camel-oasis==0.2.5:
+    # rec_sys_personalized_with_trace assumes every trace has "post_id".
+    # In practice, some actions (e.g. follow/mute) do not include it.
+    original_recsys_with_trace = oasis_recsys.rec_sys_personalized_with_trace
+
+    def _safe_rec_sys_personalized_with_trace(*args, **kwargs):
+        if "trace_table" in kwargs and isinstance(kwargs["trace_table"], list):
+            kwargs["trace_table"] = [
+                trace for trace in kwargs["trace_table"]
+                if isinstance(trace, dict) and trace.get("post_id") is not None
+            ]
+            return original_recsys_with_trace(*args, **kwargs)
+
+        if len(args) >= 3 and isinstance(args[2], list):
+            mutable_args = list(args)
+            mutable_args[2] = [
+                trace for trace in mutable_args[2]
+                if isinstance(trace, dict) and trace.get("post_id") is not None
+            ]
+            return original_recsys_with_trace(*mutable_args, **kwargs)
+
+        return original_recsys_with_trace(*args, **kwargs)
+
+    oasis_recsys.rec_sys_personalized_with_trace = _safe_rec_sys_personalized_with_trace
     return embedding_client

@@ -169,6 +169,7 @@ try:
         generate_twitter_agent_graph,
         generate_reddit_agent_graph
     )
+    from oasis.social_platform.platform import Platform
 except ImportError as e:
     print(f"错误: 缺少依赖 {e}")
     print("请先安装: pip install oasis-ai camel-ai")
@@ -1154,12 +1155,15 @@ async def run_twitter_simulation(
         os.remove(db_path)
     
     setup_oasis_gemini_embedding()
+    platform = Platform(
+        db_path=db_path,
+        recsys_type="twitter",
+        use_openai_embedding=True,
+    )
     result.env = oasis.make(
         agent_graph=result.agent_graph,
-        platform=oasis.DefaultPlatformType.TWITTER,
-        database_path=db_path,
+        platform=platform,
         semaphore=30,  # 限制最大并发 LLM 请求数，防止 API 过载
-        use_openai_embedding=True,
     )
     
     await result.env.reset()
@@ -1347,12 +1351,15 @@ async def run_reddit_simulation(
         os.remove(db_path)
     
     setup_oasis_gemini_embedding()
+    platform = Platform(
+        db_path=db_path,
+        recsys_type="reddit",
+        use_openai_embedding=True,
+    )
     result.env = oasis.make(
         agent_graph=result.agent_graph,
-        platform=oasis.DefaultPlatformType.REDDIT,
-        database_path=db_path,
+        platform=platform,
         semaphore=30,  # 限制最大并发 LLM 请求数，防止 API 过载
-        use_openai_embedding=True,
     )
     
     await result.env.reset()
