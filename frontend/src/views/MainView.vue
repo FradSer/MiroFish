@@ -241,15 +241,16 @@ const loadProject = async () => {
       updatePhaseByStatus(res.data.status)
       addLog(`Project loaded. Status: ${res.data.status}`)
       
-      if (res.data.status === 'ontology_generated' && !res.data.graph_id) {
-        await startBuildGraph()
+      if (res.data.graph_id) {
+        // Graph exists - skip straight to complete regardless of stale status
+        currentPhase.value = 2
+        await loadGraph(res.data.graph_id)
       } else if (res.data.status === 'graph_building' && res.data.graph_build_task_id) {
         currentPhase.value = 1
         startPollingTask(res.data.graph_build_task_id)
         startGraphPolling()
-      } else if (res.data.status === 'graph_completed' && res.data.graph_id) {
-        currentPhase.value = 2
-        await loadGraph(res.data.graph_id)
+      } else if (res.data.status === 'ontology_generated') {
+        await startBuildGraph()
       }
     } else {
       error.value = res.error
@@ -355,7 +356,21 @@ const pollTaskStatus = async (taskId) => {
       }
     }
   } catch (e) {
-    console.error(e)
+    // Task not found (404) - likely lost after server restart.
+    // Check project status to decide next action.
+    try {
+      const projRes = await getProject(currentProjectId.value)
+      if (projRes.success && projRes.data.graph_id) {
+        addLog('Build task lost but graph is complete. Advancing.')
+        stopPolling()
+        stopGraphPolling()
+        currentPhase.value = 2
+        projectData.value = projRes.data
+        await loadGraph(projRes.data.graph_id)
+        return
+      }
+    } catch (_) { /* project fetch also failed, keep retrying */ }
+    console.error('Poll task error:', e)
   }
 }
 
