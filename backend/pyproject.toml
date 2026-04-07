@@ -15,7 +15,7 @@ dependencies = [
     # LLM 相关
     "openai>=1.0.0",
     # Zep Cloud
-    "zep-cloud==3.13.0",
+    "zep-cloud==3.20.0",
     # OASIS 社交媒体模拟
     "camel-oasis==0.2.5",
     "camel-ai==0.2.78",
@@ -28,6 +28,11 @@ dependencies = [
     "python-dotenv>=1.0.0",
     "pydantic>=2.0.0",
     "google-genai>=1.70.0",
+    # Local model stubs (replace heavy ML inference packages)
+    "torch",
+    "sentence-transformers",
+    "transformers",
+    "scikit-learn>=1.0.0",
 ]
 
 [project.optional-dependencies]
@@ -49,3 +54,20 @@ dev = [
 
 [tool.hatch.build.targets.wheel]
 packages = ["app"]
+
+[tool.uv.sources]
+torch = { path = "stubs/torch-stub" }
+sentence-transformers = { path = "stubs/sentence-transformers-stub" }
+transformers = { path = "stubs/transformers-stub" }
+
+[tool.uv]
+# Exclude heavy ML transitive deps that are no longer needed.
+# torch/sentence-transformers are replaced by local stubs above.
+# Embeddings are handled by Gemini API via oasis_embedding_adapter.py.
+override-dependencies = [
+    "tokenizers ; python_version < '0'",
+    "huggingface-hub ; python_version < '0'",
+    "safetensors ; python_version < '0'",
+    "accelerate ; python_version < '0'",
+    "triton ; python_version < '0'",
+]
